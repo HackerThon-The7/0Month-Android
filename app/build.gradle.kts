@@ -75,4 +75,6 @@ dependencies {
 
     implementation(Dependency.Glide.glideCore)
     annotationProcessor(Dependency.Glide.glideCompiler)
+
+    implementation(Dependency.Animation.lottie)
 }

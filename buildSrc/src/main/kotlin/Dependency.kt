@@ -58,4 +58,8 @@ object Dependency {
         const val glideCore = "com.github.bumptech.glide:glide:${Version.glide}"
         const val glideCompiler = "com.github.bumptech.glide:compiler:${Version.glide}"
     }
+
+    object Animation {
+        const val lottie = "implementation 'com.airbnb.android:lottie:${Version.lottie}"
+    }
 }
