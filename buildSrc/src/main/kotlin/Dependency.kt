@@ -62,6 +62,6 @@ object Dependency {
     }
 
     object Animation {
-        const val lottie = "implementation 'com.airbnb.android:lottie:${Version.Animation.lottie}"
+        const val lottie = "com.airbnb.android:lottie:${Version.Animation.lottie}"
     }
 }
