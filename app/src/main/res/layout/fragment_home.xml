@@ -136,7 +136,8 @@
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
+                            app:layout_constraintTop_toTopOf="parent"
+                            tools:ignore="HardcodedText" />
 
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -164,7 +165,8 @@
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
+                            app:layout_constraintTop_toTopOf="parent"
+                            tools:ignore="HardcodedText" />
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -198,7 +200,8 @@
                         android:src="@drawable/ic_warning"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="ContentDescription" />
 
                     <TextView
                         android:id="@+id/tvWarning"
@@ -241,17 +244,28 @@
                     android:layout_marginHorizontal="20dp"
                     android:layout_marginTop="8dp"
                     android:background="@drawable/background_edittext_note"
-                    android:drawableEnd="@drawable/ic_menu"
                     android:fontFamily="@font/noto_sans_kr_regular"
                     android:hint="메모를 입력하세요"
                     android:importantForAutofill="no"
                     android:inputType="textMultiLine"
                     android:padding="15dp"
+                    android:paddingEnd="30dp"
                     android:paddingStart="15dp"
                     android:scrollHorizontally="false"
                     android:textSize="15sp"
                     app:layout_constraintTop_toBottomOf="@id/tvNote"
                     tools:ignore="HardcodedText,RtlSymmetry" />
+
+                <ImageView
+                    android:id="@+id/ivMenu"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginEnd="15dp"
+                    app:layout_constraintEnd_toEndOf="@id/etNote"
+                    app:layout_constraintTop_toTopOf="@id/etNote"
+                    app:layout_constraintBottom_toBottomOf="@id/etNote"
+                    android:src="@drawable/ic_menu"
+                    tools:ignore="ContentDescription" />
 
                 <TextView
                     android:id="@+id/tvFor"
@@ -303,7 +317,8 @@
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
                             app:layout_constraintVertical_chainStyle="packed"
-                            tools:src="@drawable/ic_share" />
+                            tools:src="@drawable/ic_share"
+                            tools:ignore="ContentDescription" />
 
                         <TextView
                             android:id="@+id/tvFirst"
@@ -346,7 +361,8 @@
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
                             app:layout_constraintVertical_chainStyle="packed"
-                            tools:src="@drawable/ic_liquid" />
+                            tools:src="@drawable/ic_liquid"
+                            tools:ignore="ContentDescription" />
 
                         <TextView
                             android:id="@+id/tvSecond"
