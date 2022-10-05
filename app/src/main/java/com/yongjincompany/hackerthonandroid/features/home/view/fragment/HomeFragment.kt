@@ -29,6 +29,7 @@ class HomeFragment : Fragment() {
         )
         performViewModel()
         observeViewModel()
+        bindingView()
 
         return binding.root
 
@@ -36,8 +37,12 @@ class HomeFragment : Fragment() {
 
     private fun observeViewModel() = with(homeViewModel) {
 
+    }
 
-
+    private fun bindingView() {
+        binding.calendarView.setOnDateChangeListener { view, year, month, dayOfMonth ->
+            homeViewModel.currentDate.value = "${year}-${String.format("%02d", month + 1)}-${String.format("%02d", dayOfMonth)}"
+        }
     }
 
     private fun performViewModel() {

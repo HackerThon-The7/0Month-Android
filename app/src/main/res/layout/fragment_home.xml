@@ -74,6 +74,7 @@
 
                 <TextView
                     android:id="@+id/tvDate"
+                    home_date="@{vm.currentDate}"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
@@ -107,6 +108,7 @@
                         android:fontFamily="@font/noto_sans_kr_regular"
                         android:includeFontPadding="false"
                         android:textColor="#61009C"
+                        android:text="@{vm.info}"
                         app:layout_constraintBottom_toTopOf="@id/cardWriteMenstruation"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -257,8 +259,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="25dp"
                     android:fontFamily="@font/noto_sans_kr_bold"
-                    android:textSize="16sp"
                     android:text="@{vm.isWoman() ? `For. Woman` : `For. Man`}"
+                    android:textColor="@{vm.isWoman() ? @color/color_woman : @color/color_man}"
+                    android:textSize="16sp"
                     app:layout_constraintStart_toStartOf="@id/etNote"
                     app:layout_constraintTop_toBottomOf="@id/etNote"
                     tools:text="For. Woman"
@@ -269,9 +272,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_marginHorizontal="20dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
                     android:layout_marginBottom="50dp"
                     android:background="@drawable/background_layout_for"
+                    android:backgroundTint="@{vm.isWoman() ? @color/color_woman : @color/color_man}"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintDimensionRatio="W, 1:2"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -293,12 +297,13 @@
                             android:id="@+id/ivFirst"
                             android:layout_width="35dp"
                             android:layout_height="50dp"
-                            tools:src="@drawable/ic_share"
+                            android:src="@{vm.isWoman() ? @drawable/ic_share : @drawable/ic_tip}"
                             app:layout_constraintBottom_toTopOf="@id/tvFirst"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintVertical_chainStyle="packed" />
+                            app:layout_constraintVertical_chainStyle="packed"
+                            tools:src="@drawable/ic_share" />
 
                         <TextView
                             android:id="@+id/tvFirst"
@@ -307,6 +312,8 @@
                             android:layout_marginTop="5dp"
                             android:fontFamily="@font/noto_sans_kr_bold"
                             android:gravity="center"
+                            android:text="@{vm.isWoman() ? `생리주기 공유` : `팁`}"
+                            android:textColor="@{vm.isWoman() ? @color/color_woman : @color/color_man}"
                             android:textSize="12sp"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
@@ -333,12 +340,13 @@
                             android:id="@+id/ivSecond"
                             android:layout_width="35dp"
                             android:layout_height="50dp"
-                            tools:src="@drawable/ic_liquid"
+                            android:src="@{vm.isWoman() ? @drawable/ic_liquid : @drawable/ic_graduate}"
                             app:layout_constraintBottom_toTopOf="@id/tvSecond"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintVertical_chainStyle="packed" />
+                            app:layout_constraintVertical_chainStyle="packed"
+                            tools:src="@drawable/ic_liquid" />
 
                         <TextView
                             android:id="@+id/tvSecond"
@@ -347,6 +355,8 @@
                             android:layout_marginTop="5dp"
                             android:fontFamily="@font/noto_sans_kr_bold"
                             android:gravity="center"
+                            android:text="@{vm.isWoman() ? `월경 TMI` : `질문하기`}"
+                            android:textColor="@{vm.isWoman() ? @color/color_woman : @color/color_man}"
                             android:textSize="12sp"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
