@@ -19,3 +19,5 @@ buildSrc/build/kotlin/compileKotlin/caches-jvm/lookups/
 buildSrc/build/kotlin/compileKotlin/
 
 .idea/
+
+buildSrc/build/libs/
