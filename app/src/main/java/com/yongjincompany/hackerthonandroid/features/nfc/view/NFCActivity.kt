@@ -11,26 +11,33 @@ import android.nfc.tech.Ndef
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.databinding.DataBindingUtil
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.yongjincompany.hackerthonandroid.R
+import com.yongjincompany.hackerthonandroid.databinding.ActivityNfcBinding
 
 class NFCActivity : AppCompatActivity() {
 
     private var intentFiltersArray: Array<IntentFilter>? = null
     private var nfcAdapter: NfcAdapter? = null
     private lateinit var nfcPendingIntent: PendingIntent
+    private lateinit var binding: ActivityNfcBinding
+    private lateinit var bottomSheetView: View
+    private lateinit var bottomSheetDialog: BottomSheetDialog
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_nfc)
 
-        val bottomSheetView = layoutInflater.inflate(R.layout.layout_nfc_bottom_sheet, null)
-        val bottomSheetDialog = BottomSheetDialog(this)
+        bottomSheetView = layoutInflater.inflate(R.layout.layout_nfc_bottom_sheet, null)
+        bottomSheetDialog = BottomSheetDialog(this)
         bottomSheetDialog.setContentView(bottomSheetView)
-
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_nfc)
+        binding.activity = this
         try {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 nfcPendingIntent = PendingIntent.getActivity(
@@ -57,6 +64,12 @@ class NFCActivity : AppCompatActivity() {
 
         } catch (e: Exception) {
             e.printStackTrace()
+        }
+    }
+
+    fun showBottomSheet(view: View) {
+        when (view.id) {
+            binding.nfcBtn.id -> { bottomSheetDialog.show() }
         }
     }
 
