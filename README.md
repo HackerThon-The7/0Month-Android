@@ -8,7 +8,7 @@
         <th><a href="https://github.com/snack655">최민재</a></th>
         <tr>
             <td>
-                <img src="![ㅇㅇ](https://user-images.githubusercontent.com/90879448/194059696-8b1206be-cd83-43a0-9af8-b729533623ce.jpg)" width='120' />
+                <img src="https://user-images.githubusercontent.com/90879448/188762378-6fc7afce-8e99-4905-a8c0-5feb86aecc4f.jpg" width='120' />
             </td>
             <td>
                 <img src="https://avatars.githubusercontent.com/u/82383983?v=4" width='120' />
