@@ -6,6 +6,7 @@ import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -15,6 +16,7 @@ import com.prolificinteractive.materialcalendarview.CalendarDay
 import com.yongjincompany.hackerthonandroid.R
 import com.yongjincompany.hackerthonandroid.database.RoomDatabase
 import com.yongjincompany.hackerthonandroid.databinding.ActivityCalendarBinding
+import com.yongjincompany.hackerthonandroid.features.calendar.utils.CycleDecorator
 import com.yongjincompany.hackerthonandroid.features.calendar.utils.DayStateDecorator
 import com.yongjincompany.hackerthonandroid.features.calendar.utils.TodayDecorator
 import com.yongjincompany.hackerthonandroid.features.calendar.vm.CalendarViewModel
@@ -36,6 +38,7 @@ class CalendarActivity : AppCompatActivity() {
         calendarViewModel.getAllStateDate()
         bindingView()
         observeLiveData()
+        calendarViewModel.getAllCycles()
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
@@ -60,8 +63,21 @@ class CalendarActivity : AppCompatActivity() {
         binding.fabDiary.setOnClickListener { 
             navigateToStateDiary()
         }
+
+        binding.fabPeriodStart.setOnClickListener {
+            calendarViewModel.insertStartDate(calendarViewModel.currentDate.value ?: LocalDate.now().toString())
+            Toast.makeText(this, "월경 시작 날짜를 등록합니다.", Toast.LENGTH_SHORT).show()
+            toggleFab()
+        }
+
+        binding.fabPeriodEnd.setOnClickListener {
+            calendarViewModel.insertEndDate(calendarViewModel.currentDate.value ?: LocalDate.now().toString())
+            Toast.makeText(this, "월경 끝 날짜를 등록합니다.", Toast.LENGTH_SHORT).show()
+            toggleFab()
+        }
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     private fun observeLiveData() = with(calendarViewModel) {
         currentDate.observe(this@CalendarActivity) {
             getStateDiaryByDate(it)
@@ -86,10 +102,42 @@ class CalendarActivity : AppCompatActivity() {
             it.forEach {
                 Log.d("CalendarDateList", it)
             }
-            val dateStateDecorator = DayStateDecorator(this@CalendarActivity, it)
-            val todayDecorator = TodayDecorator()
-            binding.calendarView.addDecorators(dateStateDecorator, todayDecorator)
+            setDeco()
         }
+
+        cycles.observe(this@CalendarActivity) {
+            it.last { cycle ->
+                cycle.endDate ?: return@observe
+
+                val localStartDate = LocalDate.parse(cycle.startDate)
+                val dateList = mutableListOf<String>()
+                val term = cycle.getPeriodTerm()
+
+                for (i in 0..term) {
+                    dateList.add(localStartDate.plusDays(i.toLong()).toString())
+                }
+                calendarViewModel.finalCycleList.value = dateList
+                dateList.forEach {
+                    Log.d("FinalFunc", it)
+                }
+                setDeco()
+                true
+            }
+        }
+    }
+
+    private fun setDeco() {
+        calendarViewModel.finalCycleList.value?.forEach {
+            Log.d("SetDeco", "$it final")
+        }
+
+        calendarViewModel.dateList.value?.forEach {
+            Log.d("SetDeco", "$it date")
+        }
+        val cycleDecorator = CycleDecorator(this@CalendarActivity, calendarViewModel.finalCycleList.value ?: emptyList())
+        val dateStateDecorator = DayStateDecorator(this@CalendarActivity, calendarViewModel.dateList.value ?: emptyList())
+        val todayDecorator = TodayDecorator()
+        binding.calendarView.addDecorators(dateStateDecorator, todayDecorator, cycleDecorator)
     }
 
     private fun toggleFab() {

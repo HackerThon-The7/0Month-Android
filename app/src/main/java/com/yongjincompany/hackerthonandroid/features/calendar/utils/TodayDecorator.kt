@@ -1,6 +1,5 @@
 package com.yongjincompany.hackerthonandroid.features.calendar.utils
 
-import android.content.Context
 import android.graphics.Color
 import android.text.style.ForegroundColorSpan
 import com.prolificinteractive.materialcalendarview.CalendarDay
