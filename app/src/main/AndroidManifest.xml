@@ -19,11 +19,18 @@
         <activity
             android:name=".features.chat.view.ChatActivity"
             android:exported="true">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
+        </activity>
+
+        <activity android:name=".features.diary.view.StateDiaryActivity"
+            android:exported="true">
+
         </activity>
 
         <activity
