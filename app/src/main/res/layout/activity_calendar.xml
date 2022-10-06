@@ -69,11 +69,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <CalendarView
+                <com.prolificinteractive.materialcalendarview.MaterialCalendarView
                     android:id="@+id/calendarView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:theme="@style/CustomCalenderView"
+                    app:mcv_arrowColor="@color/white"
+                    app:mcv_tileHeight="40dp"
+                    app:mcv_dateTextAppearance="@color/white"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -82,6 +85,7 @@
                     android:id="@+id/lineBottom"
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
+                    android:layout_marginTop="10dp"
                     android:layout_marginHorizontal="20dp"
                     android:background="@color/white"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -172,6 +176,7 @@
                                 android:textSize="14sp" />
 
                             <TextView
+                                android:id="@+id/tvBodyState"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
@@ -183,37 +188,47 @@
 
                         </LinearLayout>
 
-                        <LinearLayout
+                        <androidx.constraintlayout.widget.ConstraintLayout
                             android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
+                            android:layout_height="match_parent">
 
                             <TextView
+                                android:id="@+id/tvMood"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
-                                android:layout_marginBottom="10dp"
                                 android:layout_weight="1"
                                 android:fontFamily="@font/noto_sans_kr_regular"
-                                android:gravity="bottom"
+                                android:gravity="center"
+                                android:layout_marginTop="7dp"
                                 android:text="기분"
+                                android:layout_marginBottom="10dp"
+                                app:layout_constraintVertical_chainStyle="packed"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toTopOf="@id/ivMood"
                                 android:textColor="@color/black"
                                 android:textSize="14sp" />
 
                             <ImageView
-                                android:layout_width="20dp"
+                                android:id="@+id/ivMood"
+                                android:layout_width="25dp"
                                 android:layout_height="20dp"
-                                android:layout_gravity="center"
+                                android:layout_gravity="top|center_horizontal"
                                 android:layout_weight="1"
-                                android:layout_marginStart="1dp"
                                 tools:src="@drawable/ic_happy"
+                                android:layout_marginBottom="6dp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintTop_toBottomOf="@id/tvMood"
                                 android:fontFamily="@font/noto_sans_kr_bold"
                                 android:textColor="@color/black"
                                 android:textSize="16sp"
                                 tools:text="몸 상태" />
 
-                        </LinearLayout>
+                        </androidx.constraintlayout.widget.ConstraintLayout>
 
 
                         <LinearLayout
@@ -235,6 +250,7 @@
                                 android:textSize="14sp" />
 
                             <TextView
+                                android:id="@+id/tvBehaviorChange"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"

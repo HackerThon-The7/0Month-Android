@@ -1,12 +1,13 @@
 object Version {
     const val androidKtx = "1.4.0"
     const val fragmentKtx = "1.4.0"
-    const val coreKtx = "1.7.0"
-    const val appcompat = "1.4.0"
+    const val coreKtx = "1.8.0"
+    const val appcompat = "1.4.2"
 
     object UI {
-        const val material = "1.4.0"
+        const val material = "1.5.0"
         const val constraintLayout = "2.1.2"
+        const val calendar = "2.0.0"
     }
 
     object GradlePlugin {
@@ -26,7 +27,7 @@ object Version {
     }
 
     object LocalStorage {
-        const val room = "2.4.0"
+        const val room = "2.4.3"
     }
 
     object Lifecycle {

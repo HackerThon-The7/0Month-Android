@@ -1,6 +1,9 @@
 package com.yongjincompany.hackerthonandroid.features.diary.view
 
+import android.os.Build
 import android.os.Bundle
+import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
@@ -8,19 +11,23 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.yongjincompany.hackerthonandroid.R
+import com.yongjincompany.hackerthonandroid.database.RoomDatabase
 import com.yongjincompany.hackerthonandroid.databinding.ActivityStateDiaryBinding
 import com.yongjincompany.hackerthonandroid.features.diary.adapter.StateAdapter
 import com.yongjincompany.hackerthonandroid.features.diary.item.State
 import com.yongjincompany.hackerthonandroid.features.diary.vm.StateDiaryViewModel
+import java.time.LocalDate
 
 class StateDiaryActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityStateDiaryBinding
-    lateinit var stateDiaryViewModel: StateDiaryViewModel
-    lateinit var bodyStateAdapter: StateAdapter
-    lateinit var behaviorStateAdapter: StateAdapter
+    private lateinit var stateDiaryViewModel: StateDiaryViewModel
+    private lateinit var bodyStateAdapter: StateAdapter
+    private lateinit var behaviorStateAdapter: StateAdapter
 
-    var isCheckedHappy: Boolean = true
+    private lateinit var date: String
+
+    private var isCheckedHappy: Boolean = true
 
     private val bodyStates: List<State> = listOf(
         State("두통"), State("복통"), State("허리통증"), State("피부 트러블"),
@@ -34,9 +41,13 @@ class StateDiaryActivity : AppCompatActivity() {
         State("기억력/집중력 저하"), State("수면장애")
     )
 
+    @RequiresApi(Build.VERSION_CODES.O) // 음... 이게 맞나
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         performDataBinding()
+
+        stateDiaryViewModel.database = RoomDatabase.getInstance(this)
+        date = intent.getStringExtra("date") ?: LocalDate.now().toString()
         initBodyStateAdapter()
         initBehaviorAdapter()
         bindingView()
@@ -61,6 +72,35 @@ class StateDiaryActivity : AppCompatActivity() {
         }
 
         binding.btnBack.setOnClickListener {
+            finish()
+        }
+
+        binding.layoutSave.setOnClickListener {
+
+            var hasBodyStateChecked: Boolean = false
+            bodyStateAdapter.currentList.forEach {
+                if (it.isChecked) {
+                    hasBodyStateChecked = true
+                }
+            }
+
+            var hasBehaviorStateChecked: Boolean = false
+            behaviorStateAdapter.currentList.forEach {
+                if (it.isChecked) {
+                    hasBehaviorStateChecked = true
+                }
+            }
+
+            if (hasBehaviorStateChecked && hasBodyStateChecked) {
+                stateDiaryViewModel.saveState(
+                    date = date,
+                    bodyState = bodyStateAdapter.currentList.filter { it.isChecked }[0].type,
+                    mood = if (isCheckedHappy) "좋아요!" else "나빠요..",
+                    behaviorChange = behaviorStateAdapter.currentList.filter { it.isChecked }[0].type
+                )
+            } else {
+                Toast.makeText(this, "모두 체크해 주세요!", Toast.LENGTH_SHORT).show()
+            }
             finish()
         }
     }

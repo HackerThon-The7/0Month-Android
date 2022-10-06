@@ -15,8 +15,6 @@
 
     </style>
 
-
-
     <style name="CustomCalenderView" parent="Theme.AppCompat">
         <item name="colorAccent">@color/checked_yellow</item>
         <item name="colorPrimary">@color/white</item>
