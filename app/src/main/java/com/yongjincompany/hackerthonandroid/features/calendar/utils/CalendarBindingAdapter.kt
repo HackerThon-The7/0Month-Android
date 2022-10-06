@@ -14,6 +14,6 @@ fun setMutableDate(view: TextView, date: MutableLiveData<String>) {
 
     date.observe(parentActivity) { value ->
         val localDate = LocalDate.parse(value)
-        view.text = "${localDate.monthValue}월 ${localDate.dayOfMonth}일 ${getDayOfWeek(localDate.dayOfWeek.value)}"
+        view.text = "${localDate.monthValue}.${localDate.dayOfMonth} (${getDayOfWeek(localDate.dayOfWeek.value)})"
     }
 }
