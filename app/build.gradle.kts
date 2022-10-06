@@ -9,7 +9,7 @@ android {
     compileSdk = Project.compileSdk
 
     defaultConfig {
-        applicationId = "com.yongjincompany.dsmtcg"
+        applicationId = "com.yongjincompany.hackerthonandroid"
         minSdk = Project.minSdk
         targetSdk = Project.targetSdk
         versionCode = 1
