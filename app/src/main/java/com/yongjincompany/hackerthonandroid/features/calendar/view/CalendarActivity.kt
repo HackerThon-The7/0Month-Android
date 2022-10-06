@@ -11,6 +11,7 @@ import com.yongjincompany.hackerthonandroid.R
 import com.yongjincompany.hackerthonandroid.databinding.ActivityCalendarBinding
 import com.yongjincompany.hackerthonandroid.features.calendar.vm.CalendarViewModel
 import com.yongjincompany.hackerthonandroid.features.diary.view.StateDiaryActivity
+import java.time.LocalDate
 
 class CalendarActivity : AppCompatActivity() {
 
@@ -80,6 +81,7 @@ class CalendarActivity : AppCompatActivity() {
 
     private fun navigateToStateDiary() {
         val intent = Intent(this, StateDiaryActivity::class.java)
+        intent.putExtra("date", calendarViewModel.currentDate.value ?: LocalDate.now().toString())
         startActivity(intent)
     }
 
