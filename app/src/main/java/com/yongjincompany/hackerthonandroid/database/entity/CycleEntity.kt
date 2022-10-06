@@ -20,7 +20,7 @@ data class CycleEntity(
     @RequiresApi(Build.VERSION_CODES.O)
     fun getPeriodTerm(): Int {
         return endDate?.let {
-            LocalDate.parse(startDate).until(LocalDate.parse(it)).days
+            LocalDate.parse(startDate).until(LocalDate.parse(it)).days 
         } ?: LocalDate.parse(startDate).until(LocalDate.now()).days
     }
 }

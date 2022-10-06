@@ -20,8 +20,11 @@ class CalendarViewModel : ViewModel() {
 
     val dayStateEntity = MutableLiveData<DayStateEntity?>()
     val dateList = MutableLiveData<List<String>>()
+    val finalCycleList = MutableLiveData<List<String>>()
 
     var database: RoomDatabase? = null
+
+    val cycles = MutableLiveData<List<CycleEntity>>()
 
     fun getStateDiaryByDate(date: String) {
         viewModelScope.launch {
@@ -44,6 +47,7 @@ class CalendarViewModel : ViewModel() {
                 )
             )
         }
+        getAllCycles()
     }
 
     fun insertEndDate(endDate: String) {
@@ -64,10 +68,13 @@ class CalendarViewModel : ViewModel() {
                 }
             } ?: return@launch
         }
+        getAllCycles()
     }
 
     fun getAllCycles() {
-        
+        viewModelScope.launch {
+            cycles.value = database?.cycleDao()?.getAllCycle()
+        }
     }
 
 }
