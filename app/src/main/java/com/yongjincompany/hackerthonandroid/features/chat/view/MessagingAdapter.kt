@@ -42,6 +42,7 @@ class MessagingAdapter() : RecyclerView.Adapter<MessagingAdapter.MessageViewHold
                     text = currentMessage.message
                     visibility = View.VISIBLE
                 }
+                holder.messageItemBinding.circleImageView.visibility = View.INVISIBLE
                 holder.messageItemBinding.tvBotMessage.visibility = View.GONE
             }
 
@@ -50,6 +51,7 @@ class MessagingAdapter() : RecyclerView.Adapter<MessagingAdapter.MessageViewHold
                     text = currentMessage.message
                     visibility = View.VISIBLE
                 }
+                holder.messageItemBinding.circleImageView.visibility = View.VISIBLE
                 holder.messageItemBinding.tvMessage.visibility = View.GONE
             }
         }
