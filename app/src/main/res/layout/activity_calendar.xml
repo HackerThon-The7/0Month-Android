@@ -7,7 +7,7 @@
 
         <variable
             name="vm"
-            type="com.yongjincompany.hackerthonandroid.features.home.vm.HomeViewModel" />
+            type="com.yongjincompany.hackerthonandroid.features.calendar.vm.CalendarViewModel" />
 
     </data>
 
@@ -74,7 +74,7 @@
 
                 <TextView
                     android:id="@+id/tvDate"
-                    home_date="@{vm.currentDate}"
+                    calendar_date="@{vm.currentDate}"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"

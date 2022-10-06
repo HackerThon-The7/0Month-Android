@@ -16,6 +16,10 @@
         <activity
             android:name=".features.main.view.MainActivity"
             android:exported="true">
+        </activity>
+
+        <activity android:name=".features.calendar.view.CalendarActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
