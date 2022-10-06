@@ -11,11 +11,11 @@ import com.yongjincompany.hackerthonandroid.features.chat.data.Message
 import com.yongjincompany.hackerthonandroid.features.chat.logic.Constants.RECEIVE_ID
 import com.yongjincompany.hackerthonandroid.features.chat.logic.Constants.SEND_ID
 
-class MessagingAdapter : RecyclerView.Adapter<MessagingAdapter.MessageViewHolder>() {
+class MessagingAdapter() : RecyclerView.Adapter<MessagingAdapter.MessageViewHolder>() {
 
     var messageList = mutableListOf<Message>()
 
-    inner class MessageViewHolder(messageItemBinding: MessageItemBinding) : RecyclerView.ViewHolder(messageItemBinding.root) {
+    inner class MessageViewHolder(val messageItemBinding: MessageItemBinding) : RecyclerView.ViewHolder(messageItemBinding.root) {
         init {
             itemView.setOnClickListener {
                 messageList.removeAt(adapterPosition)
@@ -38,19 +38,19 @@ class MessagingAdapter : RecyclerView.Adapter<MessagingAdapter.MessageViewHolder
 
         when (currentMessage.id) {
             SEND_ID -> {
-                holder.itemView.tvMessage.apply {
+                holder.messageItemBinding.tvMessage.apply {
                     text = currentMessage.message
                     visibility = View.VISIBLE
                 }
-                holder.itemView.tvBotMessage.visibility = View.GONE
+                holder.messageItemBinding.tvBotMessage.visibility = View.GONE
             }
 
             RECEIVE_ID -> {
-                holder.itemView.tvBotMessage.apply {
+                holder.messageItemBinding.tvBotMessage.apply {
                     text = currentMessage.message
                     visibility = View.VISIBLE
                 }
-                holder.itemView.tvMessage.visibility = View.GONE
+                holder.messageItemBinding.tvMessage.visibility = View.GONE
             }
         }
     }
