@@ -1,10 +1,10 @@
-package com.yongjincompany.hackerthonandroid.common.database
+package com.yongjincompany.hackerthonandroid.database
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
-import com.yongjincompany.hackerthonandroid.features.home.database.entity.CycleEntity
-import com.yongjincompany.hackerthonandroid.features.home.database.entity.DayStateEntity
+import com.yongjincompany.hackerthonandroid.database.entity.CycleEntity
+import com.yongjincompany.hackerthonandroid.database.entity.DayStateEntity
 import java.util.concurrent.Executors
 
 @Database(
