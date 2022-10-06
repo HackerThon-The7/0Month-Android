@@ -4,10 +4,11 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import com.yongjincompany.hackerthonandroid.features.home.database.entity.CycleEntity
+import com.yongjincompany.hackerthonandroid.features.home.database.entity.DayStateEntity
 import java.util.concurrent.Executors
 
 @Database(
-    entities = [CycleEntity::class],
+    entities = [CycleEntity::class, DayStateEntity::class],
     version = 1,
     exportSchema = false
 )
