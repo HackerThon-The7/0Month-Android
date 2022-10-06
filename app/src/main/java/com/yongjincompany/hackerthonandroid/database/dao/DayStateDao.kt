@@ -15,6 +15,9 @@ interface DayStateDao {
     @Query("Select * From day_state_table where date = :date")
     suspend fun getDayState(date: String): DayStateEntity
 
+    @Query("Select date From day_state_table")
+    suspend fun getAllDate(): List<String>
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertDayState(entity: DayStateEntity)
 

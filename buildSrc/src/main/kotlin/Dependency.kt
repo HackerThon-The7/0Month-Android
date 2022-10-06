@@ -9,6 +9,7 @@ object Dependency {
         const val material = "com.google.android.material:material:${Version.UI.material}"
         const val constraintLayout =
             "androidx.constraintlayout:constraintlayout:${Version.UI.material}"
+        const val materialCalendar = "com.github.prolificinteractive:material-calendarview:${Version.UI.calendar}"
     }
 
     object GradlePlugin {

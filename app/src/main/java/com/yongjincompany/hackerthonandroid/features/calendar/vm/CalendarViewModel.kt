@@ -16,12 +16,20 @@ class CalendarViewModel : ViewModel() {
     val isWoman = MutableLiveData(true)
 
     val dayStateEntity = MutableLiveData<DayStateEntity?>()
+    val dateList = MutableLiveData<List<String>>()
 
     var database: RoomDatabase? = null
 
     fun getStateDiaryByDate(date: String) {
         viewModelScope.launch {
             dayStateEntity.postValue(database?.dayStateDao()?.getDayState(date))
+        }
+    }
+
+
+    fun getAllStateDate() {
+        viewModelScope.launch {
+            dateList.value = database?.dayStateDao()?.getAllDate()
         }
     }
 

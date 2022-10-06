@@ -42,20 +42,16 @@ android {
 
 dependencies {
     implementation(Dependency.Moshi.moshi)
-    implementation("androidx.appcompat:appcompat:1.5.1")
-    implementation("com.google.android.material:material:1.6.1")
-    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
-    implementation("androidx.legacy:legacy-support-v4:1.0.0")
     kapt(Dependency.Moshi.moshiCompiler)
     implementation(Dependency.Moshi.moshiKotlin)
 
     implementation(Dependency.coreKtx)
     implementation(Dependency.appcompat)
-    implementation(Dependency.androidKtx)
-    implementation(Dependency.fragmentKtx)
+/*    implementation(Dependency.androidKtx)
+    implementation(Dependency.fragmentKtx)*/
 
     implementation(Dependency.UI.material)
-    implementation(Dependency.UI.constraintLayout)
+    //implementation(Dependency.UI.constraintLayout)
 
     testImplementation(Dependency.Test.junit)
     testImplementation(Dependency.Test.mockito)
@@ -81,4 +77,6 @@ dependencies {
     annotationProcessor(Dependency.Glide.glideCompiler)
 
     implementation(Dependency.Animation.lottie)
+
+    implementation(Dependency.UI.materialCalendar)
 }

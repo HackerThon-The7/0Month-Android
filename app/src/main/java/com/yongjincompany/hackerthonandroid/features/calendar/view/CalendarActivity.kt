@@ -26,13 +26,14 @@ class CalendarActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         performDataBinding()
         calendarViewModel.database = RoomDatabase.getInstance(this)
+        calendarViewModel.getAllStateDate()
         bindingView()
         observeLiveData()
     }
 
     private fun bindingView() {
-        binding.calendarView.setOnDateChangeListener { view, year, month, dayOfMonth ->
-            calendarViewModel.currentDate.value = "${year}-${String.format("%02d", month + 1)}-${String.format("%02d", dayOfMonth)}"
+        binding.calendarView.setOnDateChangedListener { widget, date, selected ->
+            calendarViewModel.currentDate.value = "${date.year}-${String.format("%02d", date.month)}-${String.format("%02d", date.day)}"
         }
 
         binding.fabAdd.setOnClickListener {
@@ -66,6 +67,10 @@ class CalendarActivity : AppCompatActivity() {
                 }
                 binding.tvBehaviorChange.text = it.behaviorChange
             }
+        }
+
+        dateList.observe(this@CalendarActivity) {
+            binding.calendarView
         }
     }
 
