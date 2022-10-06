@@ -4,15 +4,19 @@ import android.animation.ObjectAnimator
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
+import com.prolificinteractive.materialcalendarview.CalendarDay
 import com.yongjincompany.hackerthonandroid.R
 import com.yongjincompany.hackerthonandroid.database.RoomDatabase
 import com.yongjincompany.hackerthonandroid.databinding.ActivityCalendarBinding
+import com.yongjincompany.hackerthonandroid.features.calendar.utils.DayStateDecorator
+import com.yongjincompany.hackerthonandroid.features.calendar.utils.TodayDecorator
 import com.yongjincompany.hackerthonandroid.features.calendar.vm.CalendarViewModel
 import com.yongjincompany.hackerthonandroid.features.diary.view.StateDiaryActivity
 import java.time.LocalDate
@@ -38,6 +42,8 @@ class CalendarActivity : AppCompatActivity() {
     private fun bindingView() {
         binding.calendarView.leftArrow.setTint(ContextCompat.getColor(this, R.color.white))
         binding.calendarView.rightArrow.setTint(ContextCompat.getColor(this, R.color.white))
+
+        binding.calendarView.selectedDate = CalendarDay.today()
 
         binding.calendarView.setOnDateChangedListener { widget, date, selected ->
             calendarViewModel.currentDate.value = "${date.year}-${String.format("%02d", date.month)}-${String.format("%02d", date.day)}"
@@ -77,7 +83,12 @@ class CalendarActivity : AppCompatActivity() {
         }
 
         dateList.observe(this@CalendarActivity) {
-            binding.calendarView
+            it.forEach {
+                Log.d("CalendarDateList", it)
+            }
+            val dateStateDecorator = DayStateDecorator(this@CalendarActivity, it)
+            val todayDecorator = TodayDecorator()
+            binding.calendarView.addDecorators(dateStateDecorator, todayDecorator)
         }
     }
 
@@ -121,6 +132,11 @@ class CalendarActivity : AppCompatActivity() {
         val intent = Intent(this, StateDiaryActivity::class.java)
         intent.putExtra("date", calendarViewModel.currentDate.value ?: LocalDate.now().toString())
         startActivity(intent)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        calendarViewModel.getAllStateDate()
     }
 
     private fun performDataBinding() {
