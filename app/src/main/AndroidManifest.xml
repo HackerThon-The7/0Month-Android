@@ -39,7 +39,6 @@
         <activity
             android:name=".features.calendar.view.CalendarActivity"
             android:exported="false" />
-        </activity>
 
         <activity
             android:name=".features.main.view.MainActivity"
