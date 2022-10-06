@@ -36,6 +36,7 @@ class MenstrualExaminationFragment :
     }
 
     private fun recyclerViewSetting() {
+        menstrualExaminationAdapter.setData(questions)
         binding.questionRv.adapter = menstrualExaminationAdapter
     }
 
