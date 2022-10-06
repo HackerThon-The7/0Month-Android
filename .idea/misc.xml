@@ -14,13 +14,36 @@
         <entry key="..\:/Users/user/Desktop/project/HackerThon-Android-16TH/app/src/main/res/drawable/ic_refresh.xml" value="0.1545" />
         <entry key="..\:/Users/user/Desktop/project/HackerThon-Android-16TH/app/src/main/res/layout/activity_chat.xml" value="0.2" />
         <entry key="..\:/Users/user/Desktop/project/HackerThon-Android-16TH/app/src/main/res/layout/activity_main.xml" value="0.22239583333333332" />
+        <entry key="app/src/main/res/drawable-v23/background_arrow_btn.xml" value="0.17" />
+        <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.17" />
+        <entry key="app/src/main/res/drawable/background_answer_btn.xml" value="0.17" />
+        <entry key="app/src/main/res/drawable/background_answer_text_color.xml" value="0.17" />
+        <entry key="app/src/main/res/drawable/background_arrow_btn.xml" value="0.17" />
+        <entry key="app/src/main/res/drawable/background_layout_for.xml" value="0.17" />
+        <entry key="app/src/main/res/drawable/bg_cancel_btn.xml" value="0.1495" />
+        <entry key="app/src/main/res/drawable/edit_back.xml" value="0.17" />
+        <entry key="app/src/main/res/drawable/ic_back.xml" value="0.17" />
+        <entry key="app/src/main/res/drawable/ic_baseline_arrow_forward_24.xml" value="0.17" />
+        <entry key="app/src/main/res/drawable/ic_graduate.xml" value="0.17" />
+        <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.17" />
+        <entry key="app/src/main/res/drawable/ic_liquid.xml" value="0.17" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.2864583333333333" />
+        <entry key="app/src/main/res/layout/activity_nfc.xml" value="0.2864583333333333" />
+        <entry key="app/src/main/res/layout/activity_period_examination.xml" value="0.2864583333333333" />
+        <entry key="app/src/main/res/layout/bottom_sheet_nfc.xml" value="0.2864583333333333" />
+        <entry key="app/src/main/res/layout/fragment_add_info.xml" value="0.13958333333333334" />
+        <entry key="app/src/main/res/layout/fragment_menstrual_examination.xml" value="0.13405797101449277" />
+        <entry key="app/src/main/res/layout/fragment_period_examination.xml" value="0.2872833251953126" />
+        <entry key="app/src/main/res/layout/item_question.xml" value="0.29773763020833327" />
+        <entry key="app/src/main/res/layout/layout_nfc_bottom_sheet.xml" value="0.2864583333333333" />
+        <entry key="app/src/main/res/xml/nfc_tech_filter.xml" value="0.13958333333333334" />
         <entry key="..\:/Users/user/Desktop/project/HackerThon-Android-16TH/app/src/main/res/layout/fragment_add_info.xml" value="0.264" />
         <entry key="..\:/Users/user/Desktop/project/HackerThon-Android-16TH/app/src/main/res/layout/fragment_add_info_girl.xml" value="0.264" />
         <entry key="..\:/Users/user/Desktop/project/HackerThon-Android-16TH/app/src/main/res/layout/message_item.xml" value="0.264" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
