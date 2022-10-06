@@ -1,4 +1,4 @@
-package com.yongjincompany.hackerthonandroid.features.home.view.utils
+package com.yongjincompany.hackerthonandroid.features.calendar.utils
 
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -8,12 +8,12 @@ import com.yongjincompany.hackerthonandroid.common.getDayOfWeek
 import com.yongjincompany.hackerthonandroid.common.getParentActivity
 import java.time.LocalDate
 
-@BindingAdapter("home_date")
+@BindingAdapter("calendar_date")
 fun setMutableDate(view: TextView, date: MutableLiveData<String>) {
     val parentActivity: AppCompatActivity = view.getParentActivity() ?: return
 
     date.observe(parentActivity) { value ->
         val localDate = LocalDate.parse(value)
-        view.text = "${localDate.monthValue}월 ${localDate.dayOfMonth}일 ${getDayOfWeek(localDate.dayOfWeek.value)}"
+        view.text = "${localDate.monthValue}.${localDate.dayOfMonth} (${getDayOfWeek(localDate.dayOfWeek.value)})"
     }
 }
