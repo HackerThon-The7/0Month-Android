@@ -9,6 +9,6 @@ object StateDiffUtilCallback : DiffUtil.ItemCallback<State>() {
     }
 
     override fun areContentsTheSame(oldItem: State, newItem: State): Boolean {
-        return oldItem == newItem
+        return oldItem.isChecked != newItem.isChecked
     }
 }

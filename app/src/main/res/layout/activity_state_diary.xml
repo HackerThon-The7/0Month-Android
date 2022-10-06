@@ -102,7 +102,7 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="30dp"
                 android:fontFamily="@font/noto_sans_kr_regular"
-                android:text="기분"
+                android:text="감정"
                 android:textColor="@color/white"
                 android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="parent"
@@ -120,14 +120,27 @@
 
                 <ImageView
                     android:id="@+id/ivHappy"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:src="@drawable/ic_happy"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintBottom_toTopOf="@id/tvHappy"
                     tools:ignore="ContentDescription" />
+
+                <TextView
+                    android:id="@+id/tvHappy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="좋아요!"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/noto_sans_kr_regular"
+                    android:textSize="10sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/ivHappy" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -142,15 +155,28 @@
                 android:backgroundTint="@color/white"
                 android:background="@drawable/background_default_item">
 
+                <TextView
+                    android:id="@+id/tvSad"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="나빠요.."
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/noto_sans_kr_regular"
+                    android:textSize="10sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/ivSad" />
+
                 <ImageView
                     android:id="@+id/ivSad"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:src="@drawable/ic_sad"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintBottom_toTopOf="@id/tvSad"
                     tools:ignore="ContentDescription" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -180,7 +206,7 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="180dp"
                 android:layout_height="45dp"
-                android:layout_marginTop="50dp"
+                android:layout_marginTop="100dp"
                 android:background="@drawable/background_default_item"
                 android:backgroundTint="@color/white"
                 android:layout_marginBottom="20dp"
