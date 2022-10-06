@@ -1,7 +1,6 @@
 package com.yongjincompany.hackerthonandroid.features.diary.view
 
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
@@ -21,7 +20,7 @@ class StateDiaryActivity : AppCompatActivity() {
     lateinit var bodyStateAdapter: StateAdapter
     lateinit var behaviorStateAdapter: StateAdapter
 
-    var isCheckedHappy: Boolean = false
+    var isCheckedHappy: Boolean = true
 
     private val bodyStates: List<State> = listOf(
         State("두통"), State("복통"), State("허리통증"), State("피부 트러블"),
@@ -44,6 +43,7 @@ class StateDiaryActivity : AppCompatActivity() {
     }
 
     private fun bindingMoodButton() {
+        binding.layoutHappy.backgroundTintList = ContextCompat.getColorStateList(this, R.color.checked_yellow)
         binding.layoutHappy.setOnClickListener {
             if (isCheckedHappy.not()) {
                 isCheckedHappy = true
@@ -68,7 +68,7 @@ class StateDiaryActivity : AppCompatActivity() {
                 it
             }
 
-            bodyStateAdapter.submitList(list)
+            bodyStateAdapter.submitList(list.sortedBy { it.isChecked.not() })
         }
 
         val staggeredGridLayoutManager = StaggeredGridLayoutManager(4, LinearLayoutManager.HORIZONTAL)
@@ -85,7 +85,7 @@ class StateDiaryActivity : AppCompatActivity() {
                 it
             }
 
-            behaviorStateAdapter.submitList(list)
+            behaviorStateAdapter.submitList(list.sortedBy { it.isChecked.not() })
         }
         val staggeredGridLayoutManager = StaggeredGridLayoutManager(2, LinearLayoutManager.HORIZONTAL)
         binding.rvBehaviorChangeState.layoutManager = staggeredGridLayoutManager
