@@ -39,10 +39,10 @@ class StateDiaryActivity : AppCompatActivity() {
         performDataBinding()
         initBodyStateAdapter()
         initBehaviorAdapter()
-        bindingMoodButton()
+        bindingView()
     }
 
-    private fun bindingMoodButton() {
+    private fun bindingView() {
         binding.layoutHappy.backgroundTintList = ContextCompat.getColorStateList(this, R.color.checked_yellow)
         binding.layoutHappy.setOnClickListener {
             if (isCheckedHappy.not()) {
@@ -58,6 +58,10 @@ class StateDiaryActivity : AppCompatActivity() {
                 binding.layoutSad.backgroundTintList = ContextCompat.getColorStateList(this, R.color.checked_yellow)
                 binding.layoutHappy.backgroundTintList = ContextCompat.getColorStateList(this, R.color.white)
             }
+        }
+
+        binding.btnBack.setOnClickListener {
+            finish()
         }
     }
 
