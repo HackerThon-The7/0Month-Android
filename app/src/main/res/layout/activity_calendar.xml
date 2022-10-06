@@ -73,6 +73,10 @@
                     android:id="@+id/calendarView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:theme="@style/CustomCalenderView"
+                    app:mcv_arrowColor="@color/white"
+                    app:mcv_tileHeight="40dp"
+                    app:mcv_dateTextAppearance="@color/white"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -81,6 +85,7 @@
                     android:id="@+id/lineBottom"
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
+                    android:layout_marginTop="10dp"
                     android:layout_marginHorizontal="20dp"
                     android:background="@color/white"
                     app:layout_constraintEnd_toEndOf="parent"

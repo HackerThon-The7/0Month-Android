@@ -2,12 +2,14 @@ package com.yongjincompany.hackerthonandroid.features.calendar.view
 
 import android.animation.ObjectAnimator
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.view.View
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
-import com.bumptech.glide.Glide
 import com.yongjincompany.hackerthonandroid.R
 import com.yongjincompany.hackerthonandroid.database.RoomDatabase
 import com.yongjincompany.hackerthonandroid.databinding.ActivityCalendarBinding
@@ -22,6 +24,7 @@ class CalendarActivity : AppCompatActivity() {
 
     private var isFabOpen = false
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         performDataBinding()
@@ -31,7 +34,11 @@ class CalendarActivity : AppCompatActivity() {
         observeLiveData()
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     private fun bindingView() {
+        binding.calendarView.leftArrow.setTint(ContextCompat.getColor(this, R.color.white))
+        binding.calendarView.rightArrow.setTint(ContextCompat.getColor(this, R.color.white))
+
         binding.calendarView.setOnDateChangedListener { widget, date, selected ->
             calendarViewModel.currentDate.value = "${date.year}-${String.format("%02d", date.month)}-${String.format("%02d", date.day)}"
         }
@@ -109,6 +116,7 @@ class CalendarActivity : AppCompatActivity() {
 
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     private fun navigateToStateDiary() {
         val intent = Intent(this, StateDiaryActivity::class.java)
         intent.putExtra("date", calendarViewModel.currentDate.value ?: LocalDate.now().toString())

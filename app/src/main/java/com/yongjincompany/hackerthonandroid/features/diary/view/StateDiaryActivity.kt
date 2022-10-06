@@ -1,7 +1,9 @@
 package com.yongjincompany.hackerthonandroid.features.diary.view
 
+import android.os.Build
 import android.os.Bundle
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
@@ -39,6 +41,7 @@ class StateDiaryActivity : AppCompatActivity() {
         State("기억력/집중력 저하"), State("수면장애")
     )
 
+    @RequiresApi(Build.VERSION_CODES.O) // 음... 이게 맞나
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         performDataBinding()
