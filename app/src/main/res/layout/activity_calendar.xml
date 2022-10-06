@@ -110,7 +110,7 @@
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        tools:text="생리 N일차" />
+                        tools:text="월경 N일차" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -1,5 +1,7 @@
 package com.yongjincompany.hackerthonandroid.database.entity
 
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import java.time.LocalDate
@@ -15,6 +17,7 @@ data class CycleEntity(
         return endDate == null
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     fun getPeriodTerm(): Int {
         return endDate?.let {
             LocalDate.parse(startDate).until(LocalDate.parse(it)).days

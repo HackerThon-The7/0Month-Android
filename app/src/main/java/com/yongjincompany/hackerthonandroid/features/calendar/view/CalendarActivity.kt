@@ -6,6 +6,7 @@ import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -60,8 +61,21 @@ class CalendarActivity : AppCompatActivity() {
         binding.fabDiary.setOnClickListener { 
             navigateToStateDiary()
         }
+
+        binding.fabPeriodStart.setOnClickListener {
+            calendarViewModel.insertStartDate(calendarViewModel.currentDate.value ?: LocalDate.now().toString())
+            Toast.makeText(this, "월경 시작 날짜를 등록합니다.", Toast.LENGTH_SHORT).show()
+            toggleFab()
+        }
+
+        binding.fabPeriodEnd.setOnClickListener {
+            calendarViewModel.insertEndDate(calendarViewModel.currentDate.value ?: LocalDate.now().toString())
+            Toast.makeText(this, "월경 끝 날짜를 등록합니다.", Toast.LENGTH_SHORT).show()
+            toggleFab()
+        }
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     private fun observeLiveData() = with(calendarViewModel) {
         currentDate.observe(this@CalendarActivity) {
             getStateDiaryByDate(it)
