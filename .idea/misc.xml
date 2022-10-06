@@ -19,6 +19,7 @@
         <entry key="app/src/main/res/drawable/ic_liquid.xml" value="0.17" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.2864583333333333" />
         <entry key="app/src/main/res/layout/activity_nfc.xml" value="0.2864583333333333" />
+        <entry key="app/src/main/res/layout/activity_period_examination.xml" value="0.2864583333333333" />
         <entry key="app/src/main/res/layout/bottom_sheet_nfc.xml" value="0.2864583333333333" />
         <entry key="app/src/main/res/layout/fragment_add_info.xml" value="0.13958333333333334" />
         <entry key="app/src/main/res/layout/fragment_menstrual_examination.xml" value="0.13405797101449277" />
