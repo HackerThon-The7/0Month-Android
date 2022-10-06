@@ -3,6 +3,8 @@ package com.yongjincompany.hackerthonandroid.database
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
+import com.yongjincompany.hackerthonandroid.database.dao.CycleDao
+import com.yongjincompany.hackerthonandroid.database.dao.DayStateDao
 import com.yongjincompany.hackerthonandroid.database.entity.CycleEntity
 import com.yongjincompany.hackerthonandroid.database.entity.DayStateEntity
 import java.util.concurrent.Executors
@@ -14,7 +16,8 @@ import java.util.concurrent.Executors
 )
 abstract class RoomDatabase : androidx.room.RoomDatabase() {
 
-//    abstract fun tokenDao(): TokenDao
+    abstract fun cycleDao(): CycleDao
+    abstract fun dayStateDao(): DayStateDao
 
     companion object {
         private var instance: RoomDatabase? = null
