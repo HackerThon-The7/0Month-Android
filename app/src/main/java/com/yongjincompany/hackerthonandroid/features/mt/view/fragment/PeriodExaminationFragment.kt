@@ -19,7 +19,6 @@ class MenstrualExaminationFragment :
     private val periodExaminationViewModel by activityViewModels<PeriodExaminationViewModel>()
     private val questions = arrayListOf(MenstrualExaminationData("월경혈이 샐까봐 항상 불안하다"))
     private val menstrualExaminationAdapter by lazy { MenstrualExaminationAdapter { boolean -> addQuestion(boolean) } }
-    private var type = ""
 
     override fun initView() {
         binding()
@@ -54,6 +53,7 @@ class MenstrualExaminationFragment :
 
     fun onClickNextBtn(view: View) {
         val intent = Intent(context, ChatActivity::class.java)
+        Log.d("TAG", periodExaminationViewModel.type.value.toString())
         intent.putExtra("type", periodExaminationViewModel.type.value)
         startActivity(intent)
         requireActivity().finish()
