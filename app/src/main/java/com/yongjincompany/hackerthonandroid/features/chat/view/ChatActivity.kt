@@ -77,6 +77,7 @@ class ChatActivity : BaseActivity<ActivityChatBinding>(
     }
 
     private fun recyclerView() {
+        adapter = MessagingAdapter()
         binding.rvMessages.adapter = adapter
         binding.rvMessages.layoutManager = LinearLayoutManager(applicationContext)
     }
