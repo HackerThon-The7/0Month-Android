@@ -1,15 +1,16 @@
 package com.yongjincompany.hackerthonandroid.features.calendar.view
 
 import android.animation.ObjectAnimator
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import com.yongjincompany.hackerthonandroid.R
 import com.yongjincompany.hackerthonandroid.databinding.ActivityCalendarBinding
 import com.yongjincompany.hackerthonandroid.features.calendar.vm.CalendarViewModel
+import com.yongjincompany.hackerthonandroid.features.diary.view.StateDiaryActivity
 
 class CalendarActivity : AppCompatActivity() {
 
@@ -21,12 +22,7 @@ class CalendarActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         performDataBinding()
-        observeViewModel()
         bindingView()
-    }
-
-    private fun observeViewModel() = with(calendarViewModel) {
-
     }
 
     private fun bindingView() {
@@ -38,6 +34,13 @@ class CalendarActivity : AppCompatActivity() {
             toggleFab()
         }
 
+        binding.layoutAddStateDiary.setOnClickListener {
+            navigateToStateDiary()
+        }
+
+        binding.fabDiary.setOnClickListener { 
+            navigateToStateDiary()
+        }
     }
 
     private fun toggleFab() {
@@ -73,6 +76,11 @@ class CalendarActivity : AppCompatActivity() {
 
         isFabOpen = !isFabOpen
 
+    }
+
+    private fun navigateToStateDiary() {
+        val intent = Intent(this, StateDiaryActivity::class.java)
+        startActivity(intent)
     }
 
     private fun performDataBinding() {

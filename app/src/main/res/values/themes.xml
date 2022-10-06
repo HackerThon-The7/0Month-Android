@@ -10,7 +10,7 @@
         <item name="colorSecondaryVariant">@color/main</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">@color/black</item>
+        <item name="android:statusBarColor" tools:targetApi="l">@color/black_2</item>
         <!-- Customize your theme here. -->
 
     </style>
@@ -18,7 +18,7 @@
 
 
     <style name="CustomCalenderView" parent="Theme.AppCompat">
-        <item name="colorAccent">@color/main</item>
+        <item name="colorAccent">@color/checked_yellow</item>
         <item name="colorPrimary">@color/white</item>
     </style>
 </resources>

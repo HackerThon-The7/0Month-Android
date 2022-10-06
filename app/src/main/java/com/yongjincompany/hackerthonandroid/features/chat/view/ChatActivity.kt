@@ -3,6 +3,8 @@ package com.yongjincompany.hackerthonandroid.features.chat.view
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.view.View
+import android.view.animation.AnimationUtils
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.yongjincompany.hackerthonandroid.R
 import com.yongjincompany.hackerthonandroid.base.BaseActivity
@@ -15,11 +17,14 @@ import com.yongjincompany.hackerthonandroid.features.chat.logic.Constants.RECEIV
 import com.yongjincompany.hackerthonandroid.features.chat.logic.Constants.SEND_ID
 import com.yongjincompany.hackerthonandroid.features.chat.logic.Time
 import kotlinx.coroutines.*
+import kotlin.properties.Delegates
 
 class ChatActivity : BaseActivity<ActivityChatBinding>(
     R.layout.activity_chat
 ) {
     private lateinit var adapter: MessagingAdapter
+
+    private var a = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,7 +51,25 @@ class ChatActivity : BaseActivity<ActivityChatBinding>(
 
 
     override fun initView() {
+        val fadeInAnim = AnimationUtils.loadAnimation(this, androidx.appcompat.R.anim.abc_fade_in)
 
+        binding.addView.visibility = View.GONE
+
+        binding.btnAdd.setOnClickListener {
+            binding.addView.visibility = View.VISIBLE
+            binding.btnCalender.visibility = View.VISIBLE
+            binding.btnDoctor.startAnimation(fadeInAnim)
+            binding.btnDoctor.visibility = View.VISIBLE
+
+            if (a == 1) {
+                binding.addView.visibility = View.GONE
+                binding.btnCalender.visibility = View.GONE
+                binding.btnDoctor.visibility = View.GONE
+                a = 0
+            } else {
+                a = 1
+            }
+        }
     }
 
     private fun customMessage(message: String) {
