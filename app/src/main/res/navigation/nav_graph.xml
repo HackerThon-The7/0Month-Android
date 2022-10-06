@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/homeFragment">
+    app:startDestination="@id/menstrualExaminationFragment">
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.yongjincompany.hackerthonandroid.features.home.view.fragment.HomeFragment"
