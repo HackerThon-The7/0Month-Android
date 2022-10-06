@@ -7,7 +7,9 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
+import com.bumptech.glide.Glide
 import com.yongjincompany.hackerthonandroid.R
+import com.yongjincompany.hackerthonandroid.database.RoomDatabase
 import com.yongjincompany.hackerthonandroid.databinding.ActivityCalendarBinding
 import com.yongjincompany.hackerthonandroid.features.calendar.vm.CalendarViewModel
 import com.yongjincompany.hackerthonandroid.features.diary.view.StateDiaryActivity
@@ -23,7 +25,9 @@ class CalendarActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         performDataBinding()
+        calendarViewModel.database = RoomDatabase.getInstance(this)
         bindingView()
+        observeLiveData()
     }
 
     private fun bindingView() {
@@ -41,6 +45,27 @@ class CalendarActivity : AppCompatActivity() {
 
         binding.fabDiary.setOnClickListener { 
             navigateToStateDiary()
+        }
+    }
+
+    private fun observeLiveData() = with(calendarViewModel) {
+        currentDate.observe(this@CalendarActivity) {
+            getStateDiaryByDate(it)
+        }
+
+        dayStateEntity.observe(this@CalendarActivity) {
+            if (it == null) {
+                binding.layoutDayState.visibility = View.GONE
+            } else {
+                binding.layoutDayState.visibility = View.VISIBLE
+                binding.tvBodyState.text = it.bodyState
+                if (it.mood == "좋아요!") {
+                    binding.ivMood.setImageResource(R.drawable.ic_happy)
+                } else {
+                    binding.ivMood.setImageResource(R.drawable.ic_sad)
+                }
+                binding.tvBehaviorChange.text = it.behaviorChange
+            }
         }
     }
 

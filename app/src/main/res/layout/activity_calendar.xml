@@ -172,6 +172,7 @@
                                 android:textSize="14sp" />
 
                             <TextView
+                                android:id="@+id/tvBodyState"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
@@ -202,6 +203,7 @@
                                 android:textSize="14sp" />
 
                             <ImageView
+                                android:id="@+id/ivMood"
                                 android:layout_width="20dp"
                                 android:layout_height="20dp"
                                 android:layout_gravity="center"
@@ -235,6 +237,7 @@
                                 android:textSize="14sp" />
 
                             <TextView
+                                android:id="@+id/tvBehaviorChange"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
