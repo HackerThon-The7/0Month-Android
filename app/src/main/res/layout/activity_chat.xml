@@ -11,7 +11,7 @@
         <ImageView
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:src="@drawable/ic_moon"
+            android:src="@drawable/ic_moon_white"
             app:layout_constraintBottom_toTopOf="@+id/rvMessages"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

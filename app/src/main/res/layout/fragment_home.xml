@@ -28,7 +28,7 @@
                 android:layout_width="19dp"
                 android:layout_height="22dp"
                 android:layout_margin="3dp"
-                android:src="@drawable/ic_moon"
+                android:src="@drawable/ic_moon_white"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
