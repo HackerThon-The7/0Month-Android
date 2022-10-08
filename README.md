@@ -1,6 +1,7 @@
 # 영월: 월경을 말해주는 친구같은 영월이랑 채팅해보자! 🚀🌙
 
 ### 🤕 해커톤에 버려진 안드로이드 개발자들
+
 <div align="center">
     <table>
         <th><a href="https://github.com/leesin0222">이용진</a></th>
@@ -19,7 +20,29 @@
         </tr>
     </table>
 </div>
+        
+## Design 
+<div align="center"> 
+<table> 
+<th>
+<a href="https://github.com/MinSeok0123">이민석</a>
+</th> 
+<tr> 
+<td> <img src="https://avatars.githubusercontent.com/u/80371412?v=4" width='120' />
+ </td>
+ </tr> 
 
+
+ </table>
+    
+### [Figma](https://www.figma.com/file/IQmEd7FhGZZ1ks9TBz1L8R/2022-%EC%97%B0%ED%95%A9-%ED%95%B4%EC%BB%A4%ED%86%A4-Team.%EC%98%81%EC%9B%94?node-id=86%3A2) 
+    
+
+
+ </div>
+
+## 소개영상 
+https://user-images.githubusercontent.com/80371412/194526642-ffd9c29c-a1eb-422e-9d53-15901834cb29.mp4
 
 ## 프로젝트 상세 정보
 
@@ -34,6 +57,7 @@
 <br>
 
 ### 네이밍 규칙
+
 drawble, xml파일 네이밍만 snake_case로 하고
 모두 camelCase로 통합하여 사용합니다.
 잘 지킵시다!🤔
@@ -43,37 +67,36 @@ drawble, xml파일 네이밍만 snake_case로 하고
 ### 커밋메세지🖐️
 
 > 다음은 커밋메세지의 형식입니다.
-``` 
+
+```
 
   CommitType :: (#issue number) Subject
-  
+
 ```
 
 ### Commit Type
 
- > 다음은 커밋타입 형식입니다.
+> 다음은 커밋타입 형식입니다.
 
-| CommitType | 설명                              |
-| ---------- | --------------------------------- |
-| 📑 ::       | 파일 생성 및 구조 변경            |
-| ⚡️ ::       | 기능 업데이트                     |
-| ⚰️ ::       | 기능 삭제                         |
-| 🐛 ::       | 버그 수정                         |
-| ♻️ ::       | 코드 리펙토링                     |
-| 📝 ::       | 문서 작성 및 수정                 |
-| ⚙️ ::       | 프로젝트 세팅                     |
-| 🧪 ::       | 테스트 코드 추가                  |
-| 🚀 ::       | 새 버전 릴리즈 ( 커밋은 아니지만😏 |
-| 🔀 ::       | Merge or PR                       |
-
-
+| CommitType | 설명                               |
+| ---------- | ---------------------------------- |
+| 📑 ::      | 파일 생성 및 구조 변경             |
+| ⚡️ ::     | 기능 업데이트                      |
+| ⚰️ ::      | 기능 삭제                          |
+| 🐛 ::      | 버그 수정                          |
+| ♻️ ::      | 코드 리펙토링                      |
+| 📝 ::      | 문서 작성 및 수정                  |
+| ⚙️ ::      | 프로젝트 세팅                      |
+| 🧪 ::      | 테스트 코드 추가                   |
+| 🚀 ::      | 새 버전 릴리즈 ( 커밋은 아니지만😏 |
+| 🔀 ::      | Merge or PR                        |
 
 ### issue number
 
 위에 #issue number 이라고 기재한 부분:
 
 - merge commit이나 PR을 날릴때에만 사용한다.
-- `(  )` 안에 작성한다.
+- `( )` 안에 작성한다.
 - `#`뒤에 개발한 브런치가 기반을둔 issue number을 기입한다.
 
 ```
